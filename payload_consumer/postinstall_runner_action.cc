@@ -227,7 +227,7 @@ bool PostinstallRunnerAction::MountPartition(
     // Switch to a permissive domain
     if (setexeccon("u:r:backuptool:s0")) {
       LOG(ERROR) << "Failed to set backuptool context";
-      return false;
+      // return false;
     }
 
     // Run backuptool script
@@ -239,7 +239,7 @@ bool PostinstallRunnerAction::MountPartition(
     // Switch back to update_engine domain
     if (setexeccon(nullptr)) {
       LOG(ERROR) << "Failed to set update_engine context";
-      return false;
+      // return false;
     }
   } else {
     LOG(INFO) << "Skipping backuptool scripts";
